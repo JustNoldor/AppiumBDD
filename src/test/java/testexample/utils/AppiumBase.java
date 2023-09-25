@@ -8,14 +8,13 @@ import java.net.URL;
 public class AppiumBase {
     private static AppiumDriver driver;
 
-    public static AppiumDriver getDriver() throws MalformedURLException, InterruptedException {
+    public static AppiumDriver getDriver() throws MalformedURLException {
         if (driver == null) {
 
             // Setup Driver and Device
             URL appiumURL = new URL("http://127.0.0.1:4723");
             UiAutomator2Options options = getUiAutomator2Options();
             driver = new AppiumDriver(appiumURL, options);
-            Thread.sleep(10000);
         }
         return driver;
     }
