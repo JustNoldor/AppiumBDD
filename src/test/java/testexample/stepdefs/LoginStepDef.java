@@ -22,7 +22,7 @@ public class LoginStepDef {
 
     @Given("I go to the Login Page")
     public void iGoToTheLoginPage() {
-        // Launch app
+        loginPageObject.checkIsInLoginPage();
     }
 
     @When("I select to shopping region")

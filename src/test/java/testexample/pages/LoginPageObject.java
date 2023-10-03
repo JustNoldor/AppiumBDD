@@ -18,6 +18,12 @@ public class LoginPageObject {
             commonObjects.waitElementExistence("com.androidsample.generalstore:id/toolbar_title");
         }
 
+
+    public void checkIsInLoginPage(){
+        commonObjects.waitElementExistence("com.androidsample.generalstore:id/toolbar_title");
+        String actualTitle = driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title")).getText();
+        Assert.assertEquals("General Store",actualTitle);
+    }
     public void selectShoppingRegion(){
         commonObjects.scrollToFindText(shoppingRegion);
         driver.findElement(By.xpath("//android.widget.TextView[@text='"+shoppingRegion+"']")).click();

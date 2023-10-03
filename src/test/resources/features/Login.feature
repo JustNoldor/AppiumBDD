@@ -1,6 +1,6 @@
 Feature: Check user login app
 
-  @login
+  @validateLogin
   Scenario: User login to app
     Given I go to the Login Page
     When I select to shopping region

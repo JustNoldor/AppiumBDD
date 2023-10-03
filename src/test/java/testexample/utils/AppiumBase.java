@@ -2,12 +2,16 @@ package testexample.utils;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class AppiumBase {
     private static AppiumDriver driver;
 
+    @BeforeTest
     public static AppiumDriver getDriver() throws MalformedURLException {
         if (driver == null) {
 
@@ -25,4 +29,12 @@ public class AppiumBase {
         options.setApp("//Users//user//Desktop//Personal//AppiumBDD//src//test//resources//App//General-Store.apk");
         return options;
     }
+
+    @AfterTest
+    public static void tearDown() {
+        // Close driver
+        driver.close();
+        driver.quit();
+    }
+
 }
