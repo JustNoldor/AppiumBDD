@@ -1,7 +1,7 @@
 package testexample.pages;
 
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,9 +13,9 @@ import java.time.Duration;
 
 public class CommonObjects {
 
-    private AppiumDriver driver;
+    private AndroidDriver driver;
 
-    public CommonObjects(AppiumDriver driver) {
+    public CommonObjects(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

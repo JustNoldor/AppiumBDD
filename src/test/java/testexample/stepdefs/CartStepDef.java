@@ -1,7 +1,6 @@
 package testexample.stepdefs;
 
-import io.appium.java_client.AppiumDriver;
-import io.cucumber.java.en.Given;
+import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import testexample.pages.CartPageObject;
@@ -11,26 +10,33 @@ import java.net.MalformedURLException;
 
 public class CartStepDef {
 
-    AppiumDriver driver;
-
+    AndroidDriver driver;
     CartPageObject cartPageObject;
+
     public CartStepDef() throws MalformedURLException {
-        this.driver= AppiumBase.getDriver();
+        this.driver = AppiumBase.getDriver();
         cartPageObject = new CartPageObject(driver);
     }
 
-    @Given("I go to the Products Page")
-    public void iGoToTheProductsPage() {
-        cartPageObject.checkInProductsPage();
+
+    @Then("I should be in the cart page")
+    public void iShouldBeInTheCartPage() {
+        cartPageObject.checkInCartPage();
     }
 
-    @When("I add a product to cart")
-    public void iAddAProductToCart() {
-        cartPageObject.addProductItem();
+    @Then("I should see total items amount")
+    public void iShouldSeeTotalItemsAmount() {
+        cartPageObject.calculateTotalItemAmount();
     }
 
-    @Then("I should see cart button value increased")
-    public void iShouldSeeCartButtonValueIncreased() {
-        cartPageObject.checkProductCounter();
+    @When("I click complete purchase button")
+    public void iClickCompletePurchaseButton() {
+        cartPageObject.clickPurchaseButton();
+
+    }
+
+    @Then("I should be in the web view page")
+    public void iShouldBeInTheWebViewPage() throws InterruptedException {
+        cartPageObject.checkPurchaseCompleteWithWebView();
     }
 }

@@ -1,6 +1,6 @@
 package testexample.stepdefs;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 
 public class LoginStepDef {
 
-    private AppiumDriver driver;
+    private AndroidDriver driver;
     private LoginPageObject loginPageObject;
 
     public LoginStepDef() throws MalformedURLException {
